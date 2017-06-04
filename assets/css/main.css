@@ -55,14 +55,14 @@ header {
 
 .dot {
   cursor:pointer;
-  height: 13px;
-  width: 13px;
+  height: 15px;
+  width: 15px;
   margin: 0 2px;
   background-color: #2b2b2b;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
-.active, .dot:hover {
+.js-active, .dot:hover {
   background-color: #717171;
 }

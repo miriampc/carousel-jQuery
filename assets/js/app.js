@@ -4,7 +4,7 @@ $(document).ready(function(){
 
  container.find('li:first').nextAll().hide();
 
-  var indexImg=1;
+  var indexImg=0;
   var nextImg = function(){
     currentImg = indexImg+1;
     if (currentImg > ulChild.length) {currentImg = 1}
@@ -25,6 +25,8 @@ $(document).ready(function(){
   function printImage(position){
     $(".container ul li:nth-child("+ indexImg +")").hide();
     $(".container ul li:nth-child("+ position +")").show();
+    $(".container span:nth-child("+indexImg+")").removeClass('js-active');
+    $(".container span:nth-child("+position+")").addClass('js-active');
     indexImg = position;
   }
 
