@@ -17,7 +17,7 @@ $(document).ready(function(){
     printImage(currentImg);
   }
 
-  var dot=function(){
+  var dot = function(){
     var idImg=$(this).attr('data-id');
     printImage(idImg);
   }
@@ -30,7 +30,7 @@ $(document).ready(function(){
 
   (function showCarousel(){
     nextImg();
-    setTimeout(showCarousel, 2000);
+    setTimeout(showCarousel, 5000);
   }());
 
   $(".next").on('click',nextImg);
