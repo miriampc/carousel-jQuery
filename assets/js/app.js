@@ -1,30 +1,45 @@
-// var gallery = {
-//   title: "",
-//   src:""
-//   fileType: ".jpg"
-// }
 $(document).ready(function(){
-  $("<figure>",{'class':'figure-img'}).append(
-    $("<img>",{
-      'id':'img',
-      'alt':'Gustavo Cerati',
-      'src':'assets/images/gustavo-cerati0.jpg'
-    })
-  ).appendTo('.container');
-  // $("<div>", {
-  //     'class': 'dropdown'
-  // }).append(
-  //     $('<ul>', {
-  //         'class': 'dropdown-menu',
-  //         'aria-labelledby': 'dropdownMenu1'
-  //     }).append(
-  //       $('<li>')
-  //         .append(
-  //           $('<a>',{
-  //             'href':'#',
-  //             'text':'Hola Mundo'
-  //           })
-  //         )
-  //     )
-  // ).hide().appendTo('.container').fadeIn('slow');
+  var container = $('.container ul');
+  var ulChild = container.find('li');
+
+ container.find('li:first').nextAll().hide();
+
+  var indexImg=1;
+  var nextImg = function(){
+    currentImg = indexImg;
+    indexImg+=1;
+    console.log(currentImg+"-"+indexImg);
+    if (indexImg > ulChild.length) {indexImg = 1}
+
+    $(".container ul li:nth-child("+ currentImg +")").hide();
+    $(".container ul li:nth-child("+ indexImg +")").show();
+  }
+
+  var prevImg = function(){
+    currentImg = indexImg;
+    indexImg-=1;
+    if (indexImg < 1) {indexImg = ulChild.length}
+
+    $(".container ul li:nth-child("+ currentImg +")").hide();
+    $(".container ul li:nth-child("+ indexImg +")").show();
+  }
+
+  var dot=function(){
+    var idImg=$(this).attr('data-id');
+    console.log(idImg);
+    printImage(idImg);
+  }
+
+
+  function printImage(position){
+    $(".container ul li:nth-child("+ indexImg +")").hide();
+    $(".container ul li:nth-child("+ position +")").show();
+    indexImg=position;
+  }
+
+  $(".next").on('click',nextImg);
+  $(".prev").on('click',prevImg);
+  $(".dot").on('click',dot);
+
+
 });
