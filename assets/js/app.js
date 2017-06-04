@@ -6,40 +6,34 @@ $(document).ready(function(){
 
   var indexImg=1;
   var nextImg = function(){
-    currentImg = indexImg;
-    indexImg+=1;
-    console.log(currentImg+"-"+indexImg);
-    if (indexImg > ulChild.length) {indexImg = 1}
-
-    $(".container ul li:nth-child("+ currentImg +")").hide();
-    $(".container ul li:nth-child("+ indexImg +")").show();
+    currentImg = indexImg+1;
+    if (currentImg > ulChild.length) {currentImg = 1}
+    printImage(currentImg);
   }
 
   var prevImg = function(){
-    currentImg = indexImg;
-    indexImg-=1;
-    if (indexImg < 1) {indexImg = ulChild.length}
-
-    $(".container ul li:nth-child("+ currentImg +")").hide();
-    $(".container ul li:nth-child("+ indexImg +")").show();
+    currentImg = indexImg-1;
+    if (currentImg < 1) {currentImg = ulChild.length}
+    printImage(currentImg);
   }
 
   var dot=function(){
     var idImg=$(this).attr('data-id');
-    console.log(idImg);
     printImage(idImg);
   }
-
 
   function printImage(position){
     $(".container ul li:nth-child("+ indexImg +")").hide();
     $(".container ul li:nth-child("+ position +")").show();
-    indexImg=position;
+    indexImg = position;
   }
+
+  (function showCarousel(){
+    nextImg();
+    setTimeout(showCarousel, 2000);
+  }());
 
   $(".next").on('click',nextImg);
   $(".prev").on('click',prevImg);
   $(".dot").on('click',dot);
-
-
 });
