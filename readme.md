@@ -1,4 +1,4 @@
-* Carousel con jQuery
+## Carousel con jQuery
 
 - Se desarrolló un Carousel (slide de imagenes), aplicando sintaxis y métodos de jquery.
 - La aplicación (app.js) tiene 5 funciones:
@@ -10,4 +10,4 @@
 
 
 
-**Ver carousel aqui: ** https://github.com/miriampc/carousel-jQuery
+**Ver carousel aqui:** https://github.com/miriampc/carousel-jQuery
